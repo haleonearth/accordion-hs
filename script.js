@@ -1,13 +1,5 @@
 const accordionItems = document.querySelectorAll('.hs-accordion__item');
-const firstAccordionItem = accordionItems[0]; // Get the first hs-accordion__item element
 
-// Toggle the state of the first hs-accordion__item element
-firstAccordionItem.classList.add('active');
-const firstAccordionContent = firstAccordionItem.querySelector('.hs-accordion__item-content');
-firstAccordionContent.classList.add('active');
-firstAccordionContent.style.height = firstAccordionContent.scrollHeight + 'px';
-
-// Attach the click event listener to all the hs-accordion__item elements
 accordionItems.forEach(accordionItem => {
   const accordionButton = accordionItem.querySelector('button');
 
