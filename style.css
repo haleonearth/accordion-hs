@@ -9,6 +9,11 @@
   height: auto;
 }
 
+.hs-accordion__item[aria-expanded="true"] button .hs-accordion__item-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
 .hs-accordion {
   max-width: 800px;
   margin-left: auto;

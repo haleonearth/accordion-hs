@@ -10,6 +10,7 @@ accordionItems.forEach(accordionItem => {
       if (item !== accordionItem) {
         item.classList.remove('active');
         itemContent.classList.remove('active');
+        item.setAttribute('aria-expanded', 'false');
         itemContent.style.height = '0';
       }
     });
@@ -19,10 +20,12 @@ accordionItems.forEach(accordionItem => {
     if (accordionItem.classList.contains('active')) {
       accordionItem.classList.remove('active');
       accordionContent.classList.remove('active');
+      accordionItem.setAttribute('aria-expanded', 'false');
       accordionContent.style.height = '0';
     } else {
       accordionItem.classList.add('active');
       accordionContent.classList.add('active');
+      accordionItem.setAttribute('aria-expanded', accordionItem.getAttribute('aria-expanded') === 'true' ? 'false' : 'true');
       accordionContent.style.height = accordionContent.scrollHeight + 'px';
     }
   });
