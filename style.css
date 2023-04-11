@@ -10,7 +10,7 @@
 }
 
 .hs-accordion__item[aria-expanded="true"] button .hs-accordion__item-icon {
-  transform: rotate(180deg);
+  transform: rotate(135deg);
   transition: transform 0.3s ease;
 }
 
@@ -119,9 +119,9 @@
 }
 
 .hs-accordion__item[aria-expanded="true"] .hs-accordion__item-icon {
-  -webkit-transform: translateY(-50%) rotate(135deg);
-  -ms-transform: translateY(-50%) rotate(135deg);
-  transform: translateY(-50%) rotate(135deg);
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
   border-color: #fdb414;
   background-color: #fdb414;
 }
@@ -182,4 +182,28 @@
 
 .hs-accordion__item-content ul li {
   margin-bottom: 16px;
+}
+
+/*
+ * quick patch (can refactor later)
+ */
+.hs-accordion__item[aria-expanded="true"] .hs-accordion__item-icon,
+.hs-accordion__item[aria-expanded="true"] .hs-accordion__item-icon:after,
+.hs-accordion__item[aria-expanded="true"] .hs-accordion__item-icon:before {
+    transition: all 0.8s ease;
+}
+
+.hs-accordion__item[aria-expanded="true"] .hs-accordion__item-icon {
+	transform: translatey(-50%) !important;
+}
+
+
+.hs-accordion__item[aria-expanded="true"] .hs-accordion__item-icon:after {
+    -webkit-transform: translateY(-50%) rotate(135deg) !important;
+  -ms-transform: translateY(-50%) rotate(135deg) !important;
+  transform: translateY(-50%) rotate(135deg) !important;
+}
+
+.hs-accordion__item[aria-expanded="true"] .hs-accordion__item-icon:before {
+  transform: translateY(-50%) translateX(-6px) rotate(-225deg) !important;
 }
