@@ -34,6 +34,7 @@ function buildAccordion(el) {
           }
           /* Toggle the item */
           toggleItem(e.target.parentNode);
+          e.target.parentNode.classList.toggle('active'); // add this line
         }
       });
     },

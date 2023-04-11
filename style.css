@@ -150,3 +150,19 @@ html {
 .hs-accordion__item-content ul li {
   margin-bottom: 16px;
 }
+
+
+/* ghostwriter recommended addition for animation */
+.hs-accordion__item-content{
+  max-height: 0;
+  transition: all 0.3s ease;
+}
+.hs-accordion__item.active .hs-accordion__item-content {
+  max-height: 100rem;
+  transition: all 0.3s ease;
+}
+
+.hs-accordion__item-content:not(.active) {
+  max-height: 0;
+  transition: all 0.3s ease;
+}
