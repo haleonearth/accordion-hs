@@ -9,19 +9,27 @@ function buildAccordion(el) {
     accordionItems = accordion.children,
     oneAtTime = accordion.getAttribute('data-sync'),
     hideAllItems = function(ex) {
-      /* Loop through all items and hide them */
+      var activeItems = accordion.querySelectorAll('.hs-accordion__item[aria-expanded="true"]');
       Array.prototype.forEach.call(accordionItems, function(el, i) {
-        if (el != ex) {
-          el.setAttribute('aria-expanded', 'false')
+        if (el !== ex && (activeItems.length > 1 || !el.classList.contains('active'))) {
+          el.setAttribute('aria-expanded', 'false');
+          el.classList.remove('active');
         }
       });
     },
     toggleItem = function(el) {
       /* Toggle whether item is selected or not */
       if (el.getAttribute('aria-expanded') == 'true') {
+        if (oneAtTime) {
+          hideAllItems(el);
+          return;
+        }
         el.setAttribute('aria-expanded', 'false');
       }
       else {
+        if (oneAtTime) {
+          hideAllItems(el);
+        }
         el.setAttribute('aria-expanded', 'true');
       }
     },
